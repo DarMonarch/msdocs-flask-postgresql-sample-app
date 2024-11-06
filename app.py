@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS orders (
 cursor.execute(create_orders_table_query)
 connection.commit()
 
-
+@app.route('/')
 @app.route('/Home_Page')
 def Home():
     return render_template('Home Page/Home.html')
@@ -139,7 +139,6 @@ def SignUp():
     connection.commit()
     return redirect(url_for('Home'))
 
-@app.route('/')
 @app.route('/login', methods=['POST'])
 def login():
     email = request.form['email']
