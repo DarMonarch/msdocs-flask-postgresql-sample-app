@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help Center</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'help.css')}}" />
+  </head>
+  <body>
+    <header>
+      <h1>Help Center</h1>
+      <p>
+        Welcome to our Help Center! Here, you’ll find answers to your questions
+        and solutions to common issues.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Frequently Asked Questions (FAQs)</h2>
+
+        <div class="faq">
+          <h3 class="faq-question">Account Management</h3>
+          <div class="faq-answer">
+            <p>
+              <strong>How do I create an account?</strong><br />To create an
+              account, click on the “Sign Up” button on our homepage and fill
+              out the required information.
+            </p>
+            <p>
+              <strong>What should I do if I forget my password?</strong
+              ><br />Click on the “Forgot Password?” link on the login page and
+              follow the instructions to reset your password.
+            </p>
+            <p>
+              <strong>How can I update my account information?</strong><br />Log
+              in to your account, go to the “Account Settings” section, and
+              update your details as needed.
+            </p>
+            <p>
+              <strong>How do I delete my account?</strong><br />To delete your
+              account, please contact our support team via email or phone for
+              assistance.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <h3 class="faq-question">Returns and Exchanges</h3>
+          <div class="faq-answer">
+            <p>
+              <strong>How do I return an item?</strong><br />To return an item,
+              visit our <a href="#">Returns Policy</a> page for detailed
+              instructions and to obtain a return shipping label.
+            </p>
+            <p>
+              <strong>What is your return policy?</strong><br />We offer a
+              30-day return policy for most items. For more details, please
+              refer to our <a href="#">Returns Policy</a>.
+            </p>
+            <p>
+              <strong>How can I exchange an item?</strong><br />To exchange an
+              item, please initiate a return and then place a new order for the
+              desired item.
+            </p>
+            <p>
+              <strong>Do I need to pay for return shipping?</strong><br />Return
+              shipping costs may vary based on the reason for the return. Check
+              our <a href="#">Returns Policy</a> for more information.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <h3 class="faq-question">Product Information</h3>
+          <div class="faq-answer">
+            <p>
+              <strong>How do I find product details?</strong><br />Product
+              details can be found on each product page, including descriptions,
+              specifications, and customer reviews.
+            </p>
+            <p>
+              <strong>What should I do if a product is out of stock?</strong
+              ><br />If a product is out of stock, you can sign up for a
+              notification to be alerted when it becomes available again.
+            </p>
+            <p>
+              <strong>How can I leave a product review?</strong><br />After
+              purchasing an item, you can leave a review on the product page by
+              clicking on the “Write a Review” button.
+            </p>
+            <p>
+              <strong
+                >Are product images accurate representations of the
+                items?</strong
+              ><br />Yes, we strive to provide accurate images and descriptions.
+              However, actual colors may vary slightly due to lighting and
+              screen settings.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <h3 class="faq-question">Troubleshooting Common Issues</h3>
+          <div class="faq-answer">
+            <p>
+              <strong
+                >What should I do if I encounter an error on the
+                website?</strong
+              ><br />Try refreshing the page or clearing your browser cache. If
+              the problem persists, contact our support team.
+            </p>
+            <p>
+              <strong>How can I clear my browser cache?</strong><br />You can
+              clear your browser cache through your browser settings by looking
+              for “Clear browsing data” or similar options.
+            </p>
+            <p>
+              <strong>Why am I unable to access my account?</strong><br />If
+              you’re having trouble accessing your account, ensure you’re using
+              the correct email and password. You can reset your password if
+              needed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Contact Support</h2>
+        <p>
+          If you can't find the answer you need, please reach out to our
+          customer support team:
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:support@yourwebsite.com">support@yourwebsite.com</a
+          ><br />
+          <strong>Phone:</strong>
+          <a href="tel:1-800-123-4567">1-800-123-4567</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Useful Links</h2>
+        <ul>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms and Conditions</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Additional Resources</h2>
+        <p>
+          Check out our blog articles, video tutorials, and user guides for more
+          information on using our website and services.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Follow us on social media: <a href="#">Facebook</a> |
+        <a href="#">Twitter</a> | <a href="#">Instagram</a>
+      </p>
+      <p>
+        For more company information, visit our <a href="{{url_for('about')}}">About Us</a> page.
+      </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/Help.js') }}"></script>
+  </body>
+</html>

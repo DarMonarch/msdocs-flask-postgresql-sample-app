@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="theme" rel="stylesheet" href="{{ url_for('static', filename='light.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'help.css')}}" />
+    <title>Fruits Page</title>
+    <style>
+        .img{
+            width: 100%;
+        }
+        .card{
+            padding: 10px !important;
+        }
+        .col-md-2{
+            margin-left: 25px;
+            display:grid;
+            display: flex;
+            justify-content: space-between;
+            justify-items: center;
+        }
+        
+        .row{
+            margin-bottom: 10px;
+        }
+        #search-input { 
+            width: 100%; padding: 10px; margin-bottom: 5px; 
+        }
+        #results { 
+            padding: 10px; border: 1px solid #ddd; margin-top: 10px; 
+        }
+        .highlight { 
+            background-color: yellow; font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Food Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('Home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ url_for('products') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('products') }}">Products Page</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('veg') }}">Vegetables</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('fruits') }}">Fruits</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('baked') }}">Baked Goods</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('help') }}">Help</a></li>
+                    <li class="nav-item">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme_togg" onclick="toggleTheme()">
+                            <label class="form-check-label" for="theme_togg"></label>
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="Search_inp" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <a href="{{ url_for('cart') }}" class="ms-3 position-relative"><i class="bi bi-cart"></i>    
+                        <span id="cart-count" class="badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.75rem; display: none;">0</span>
+                    </a>
+                    <a href="{{ url_for('account') }}" class="ms-3"><i class="bi bi-person-circle"></i></a>
+                </form>
+            </div>
+        </div>
+    </nav><br><br>
+
+    <div class="container my-4">
+        <h1 style="text-align: center;"><u>Fruits</u></h1>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/apple.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Apple</h5>
+                        <p class="card-text">$3.89</p>
+                        <a href="#" class="btn btn-primary" data-name="Apple" data-price="3.89" data-image="{{url_for('static', filename='Images/fruits/apple.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/banana.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Banana</h5>
+                        <p class="card-text">$4.29</p>
+                        <a href="#" class="btn btn-primary" data-name="Banana" data-price="4.29" data-image="{{url_for('static', filename='Images/fruits/banana.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/blue.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Blueberry</h5>
+                        <p class="card-text">$6.89</p>
+                        <a href="#" class="btn btn-primary" data-name="Blueberry" data-price="6.89" data-image="{{url_for('static', filename='Images/fruits/blue.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/cherry.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Cherry</h5>
+                        <p class="card-text">$7.49</p>
+                        <a href="#" class="btn btn-primary" data-name="Cherry" data-price="7.49" data-image="{{url_for('static', filename='Images/fruits/cherry.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/grapes.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Grapes</h5>
+                        <p class="card-text">$4.69</p>
+                        <a href="#" class="btn btn-primary" data-name="Grapes" data-price="4.69" data-image="{{url_for('static', filename='Images/fruits/grapes.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/kiwi.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Kiwi</h5>
+                        <p class="card-text">$7.99</p>
+                        <a href="#" class="btn btn-primary" data-name="Kiwi" data-price="7.99" data-image="{{url_for('static', filename='Images/fruits/kiwi.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/orange.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Orange</h5>
+                        <p class="card-text">$3.49</p>
+                        <a href="#" class="btn btn-primary" data-name="Orange" data-price="3.49" data-image="{{url_for('static', filename='Images/fruits/orange.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/pine.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Pineapple</h5>
+                        <p class="card-text">$6.99</p>
+                        <a href="#" class="btn btn-primary" data-name="Pineapple" data-price="6.99" data-image="{{url_for('static', filename='Images/fruits/pine.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/straw.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Strawberry</h5>
+                        <p class="card-text">$8.69</p>
+                        <a href="#" class="btn btn-primary" data-name="Strawberry" data-price="8.69" data-image="{{url_for('static', filename='Images/fruits/straw.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card">
+                    <img src="{{url_for('static', filename='Images/fruits/water.jpeg')}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Melon</h5>
+                        <p class="card-text">$11.99</p>
+                        <a href="#" class="btn btn-primary" data-name="Melon" data-price="11.99" data-image="{{url_for('static', filename='Images/fruits/water.jpeg')}}" onclick="addToCart(this)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="Rights"><b>@2024 Online Store. All Rights Reserved</b></p>
+
+    <script src="{{ url_for('static', filename='js/Help.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Cart.js') }}"></script>
+    <script src="{{ url_for('static', filename='Search.js') }}"></script>
+    <script src="{{ url_for('static', filename='Theme.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

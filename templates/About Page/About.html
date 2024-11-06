@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="theme" rel="stylesheet" href="{{ url_for('static', filename='light.css') }}">
+    <title>Home Page</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Food Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('Home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{{ url_for('products') }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('products') }}">Products Page</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('veg') }}">Vegetables</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('fruits') }}">Fruits</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('baked') }}">Baked Goods</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('help') }}">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="theme_togg" onclick="toggleTheme()">
+                            <label class="form-check-label" for="theme_togg"></label>
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="Search_inp" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <a href="{{ url_for('cart') }}" class="ms-3 position-relative"><i class="bi bi-cart"></i>    
+                        <span id="cart-count" class="badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.75rem; display: none;">0</span>
+                    </a>                    
+                    <a href="{{ url_for('account') }}" class="ms-3"><i class="bi bi-person-circle"></i></a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="Search_Res" class="container mt-3"></div>
+    <header>
+        <h1 style="text-align: center; color:maroon;"><u>About Us</u></h1>
+        <p>Your trusted source for the freshest produce and baked goods</p>
+    </header>
+
+    <section id="mission">
+        <h4><u>Our Mission</u></h4>
+        <p>
+            At FreshMart, we are dedicated to providing our customers with the highest quality vegetables, fruits, and baked items. 
+            We believe that healthy, delicious food starts with fresh ingredients, sourced responsibly and delivered right to your doorstep.
+        </p>
+    </section>
+
+    <section id="values">
+        <h4><u>Our Values</u></h4>
+        <ul>
+            <li><strong>Quality:</strong> We prioritize the quality and freshness of every product we offer.</li>
+            <li><strong>Transparency:</strong> We work closely with trusted farmers and bakers to ensure full transparency in our sourcing.</li>
+            <li><strong>Community:</strong> Supporting local farmers and artisans is at the heart of what we do.</li>
+            <li><strong>Sustainability:</strong> We strive to minimize our environmental impact by using eco-friendly packaging and sustainable practices.</li>
+        </ul>
+    </section>
+
+    <section id="products">
+        <h4><u>Our Products</u></h4>
+        <p>Explore our selection of:</p>
+        <ul>
+            <li><strong>Fresh Vegetables:</strong> From leafy greens to root vegetables, all sourced daily from trusted farms.</li>
+            <li><strong>Seasonal Fruits:</strong> Hand-picked, ripe, and bursting with flavor, we bring you the best fruits of every season.</li>
+            <li><strong>Baked Goods:</strong> Freshly baked breads, pastries, and more, prepared with love by local bakers.</li>
+        </ul>
+    </section>
+
+    <section id="commitment">
+        <h4><u>Our Commitment to You</u></h4>
+        <p>
+            At FreshMart, customer satisfaction is our top priority. We guarantee fresh products, timely delivery, and exceptional service.
+            We’re committed to making healthy, delicious food accessible to everyone, and we are here to support your journey to better health and wellness.
+        </p>
+    </section>
+
+    <section id="team">
+        <h4><u>Meet Our Team</u></h4>
+        <p>
+            Our dedicated team is passionate about food, health, and sustainability. From sourcing experts to delivery specialists, 
+            each member plays a crucial role in ensuring you receive only the best products.
+        </p>
+    </section>
+
+    <section id="contact-info">
+        <h4><u>Contact Us</u></h4>
+        <p>Have questions? We'd love to hear from you! Reach out to us at:</p>
+        <p>Email: support@freshmart.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+    </section>
+
+
+    <script src="{{ url_for('static', filename='js/Cart.js') }}"></script>
+    <script src="{{ url_for('static', filename='Theme.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
