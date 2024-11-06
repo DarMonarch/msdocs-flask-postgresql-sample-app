@@ -7,10 +7,10 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = 'your_secret_key'
 
 connection = psycopg2.connect(
-    host="localhost",
-    database="Web_User_Database",
-    user="postgres",
-    password="Sohail@8654"
+    host="a1grpwebsite-server.postgres.database.azure.com",
+    database="a1grpwebsite-database",
+    user="myksbwyjfd",
+    password="m$9smYMoRnwfcL4y"
 )
 cursor = connection.cursor()
 
