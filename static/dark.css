@@ -1,0 +1,109 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.bi-cart, .bi-person-circle {
+    font-size: 1.5rem;
+}
+
+.bg-body-tertiary {
+    background-color: rgb(52, 50, 50) !important;
+    border: 2px solid rgb(192, 192, 192);
+    border-radius: 10px;
+}
+
+.navbar-brand, .nav-link, .bi-cart, .bi-person-circle {
+    color: white;
+}
+
+.me-2, .btn-outline-success {
+    background-color: dimgray;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid white;
+}
+
+.nav-link:hover {
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 10px;
+}
+
+.dropdown-menu {
+    background-color: rgb(52, 50, 50);
+}
+
+.dropdown-item{
+    text-align: center;
+    color: aliceblue;
+}
+
+.dropdown-menu:hover {
+    color: white;
+}
+
+.btn-outline-success:hover {
+    background-color: white;
+    color: black; 
+    border: 1px solid lightskyblue;
+}
+
+.nav-item .form-check {
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 5px; 
+}
+
+#Page {
+    height: 50vh;
+    text-align: center;
+    background-color: grey;
+    color: black;
+    border-radius: 10px;
+    margin: 5px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-title, .card-text {
+    height: 1.8vh;
+    
+}
+
+.card {
+    height: 100%;
+    width: 18rem;
+    background-color: darkgray;
+    border: 2px solid white;
+}
+
+#Rights{
+    background-color: darkslategrey;
+    text-align: center;
+    font-size: large;
+}
+
+.cart-container{
+    background-color: darkgray;
+}
+
+.cart-header {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+.cart-items span{
+    color: black;
+}
+
+.order-summary h3, .summary-item{
+    color: black;
+}
+
+.orders-table{
+    color: black;
+}

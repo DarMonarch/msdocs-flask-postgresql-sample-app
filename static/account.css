@@ -1,0 +1,74 @@
+.body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.account-container {
+    background-color:#ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.account-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2a9d8f;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    justify-items: center;
+}
+
+.account-button {
+    margin: 0 auto;
+    background-color: #0073e6;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.account-button:hover {
+    background-color: #005bb5;
+    transform: translateY(-3px);
+}
+
+.account-button:active {
+    background-color: #004a94;
+    transform: translateY(1px);
+}
+
+.account-button i {
+    font-size: 24px;
+    margin-right: 12px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.account-button:hover i {
+    color: #ffcc00;
+    transform: scale(1.2);
+}
+
+.full-width {
+    grid-column: span 2;
+}
